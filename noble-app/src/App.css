@@ -1,0 +1,9 @@
+.header {
+  background-color: black;
+  margin-top: 0;
+  height: 80px;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
