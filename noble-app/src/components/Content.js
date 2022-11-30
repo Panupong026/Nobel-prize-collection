@@ -7,15 +7,22 @@ const Content = ({ nobel, setNobel }) => {
     useEffect(() => {
         axios
             .get(url)
-            .then((res) => {
+            .then((res) => {                
                 const nobelArr = res.data.nobelPrizes
                 setNobel(nobelArr)
             })
             .catch((err) => {
                 console.log(err)
             })
-    }, [])
+        }, [])
+    
+    const categories = nobel.map((item) => {
+        return (
+            item.category.en
+        )
+    })
 
+    console.log(categories)
     const nobels = nobel.map((item) => {
         let data
         try {

@@ -16,18 +16,15 @@ const App = () => {
   return (
     <div className='container'>
       <nav>
-        <header headerContainer>
           <h1 className='header'>
             <Link to="/Home">Noble Prize Collection</Link>
             <span className='about'>
             <Link to="/about">About</Link>
             </span>
           </h1>
-        </header>
       </nav>
         <Nav />
         <Search />
-        {/* <Content nobel={nobel} setNobel={setNobel} /> */}
 
         <Routes>
           <Route path='/Home' element={<Home />} />
