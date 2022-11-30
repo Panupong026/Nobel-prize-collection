@@ -8,40 +8,29 @@ import About from './components/About';
 import Content from './components/Content';
 
 const App = () => {
-  const url = "https://api.nobelprize.org/2.1/nobelPrizes"
 
   const [nobel, setNobel] = useState([])
-
-  const getData = () => {
-    axios
-      .get(url)
-      .then((res) => {
-        console.log(res.data.nobelPrizes)
-        const nobelArr = res.data.nobelPrizes
-
-        setNobel(nobelArr)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-  // getData()
-
+  
   return (
     <div>
+      <nav>
       <header>
-        <h1 className='header'>Noble Prize Collection</h1>
+        <h1 className='header'>
+          <Link to="/">
+            Noble Prize Collection
+            </Link>
+          </h1>
       </header>
+        <Link to="/about">About</Link>
+      </nav>
       <main className='body'>
-        {/* {nobel.map((item, index) => {
-        <li key={index}>
-          {item}
-        </li>
-      })} */}
-        <Search />
         <Nav />
+        <Search />
+        <Content nobel={nobel} setNobel={setNobel}/>
       </main>
-        <About />
+      <Routes>
+      <Route path='/about' element={<About />}/>
+      </Routes>
     </div>
   );
 }
