@@ -15,6 +15,7 @@ import About from "../About";
 const Nav = () => {
     const [nobel, setNobel] = useState([])
     const [insert, setInsert] = useState("")
+    const [laureates, setLaureates] = useState([])
     const url = "https://api.nobelprize.org/2.1/nobelPrizes"
 
     useEffect(() => {
@@ -44,7 +45,7 @@ const Nav = () => {
                 </div>
             </div>
             <div className="search">
-                <Search insert={insert} setInsert={setInsert} />
+                <Search insert={insert} setInsert={setInsert} laureates={laureates} setLaureates={setLaureates}/>
             </div>
             <Routes>
                 <Route path="/Content/All" element={<All nobel={nobel} setNobel={setNobel} />} />
