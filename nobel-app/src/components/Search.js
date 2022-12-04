@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Result from "./Result";
 
-const Search = ({ insert, setInsert, laureates, setLaureates }) => {
-    let urls = "https://api.nobelprize.org/2.1/laureates"
+const Search = ({ insert, setInsert, laureate, setLaureate }) => {
+    let urls = "https://api.nobelprize.org/2.1/nobelPrizes"
 
     const [data, setData] = useState([])
 
@@ -11,7 +12,7 @@ const Search = ({ insert, setInsert, laureates, setLaureates }) => {
             .get(urls)
             .then((res) => {
                 // console.log(res.data)
-                setData(res.data)
+                setData(res.data.nobelPrizes)
 
             })
             .catch((err) => {
@@ -23,27 +24,26 @@ const Search = ({ insert, setInsert, laureates, setLaureates }) => {
     let handleChange = (e) => {
         setInsert(e.target.value)
     }
-    let get = () => {
 
-    }
+    // console.log(data)
+
     let handleClick = () => {
-        for (let i = 0; i < data.laureates.length; i++) {
-            if (insert === data.laureates[i].fullName.en) {
-                console.log("1234")
-                axios
-                    .get(`https://api.nobelprize.org/2.1/laureate/${data.laureates[i].id}`)
-                    .then((res) => {
-                        console.log(`https://api.nobelprize.org/2.1/laureate/${data.laureates[i].id}`);
-                        console.log(res.data);
-
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    })
+        for (let i = 0; i < data.length; i++) {
+                if (data[i].laureates[0].hasOwnProperty('fullName') ? insert === data[i].laureates[0].fullName.en : data[i]) {
+                    axios
+                        .get(`https://api.nobelprize.org/2.1/laureate/${data[i].laureates[0].id}`)
+                        .then((res) => {
+                            console.log(`https://api.nobelprize.org/2.1/laureate/${data[i].laureates[0].id}`);
+                            setLaureate([res.data[0]])
+                            
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                    }
             }
         }
         console.log(insert)
-    }
 
     return (
         <div>
@@ -57,11 +57,10 @@ const Search = ({ insert, setInsert, laureates, setLaureates }) => {
                 type="submit"
                 onClick={() => {
                     handleClick()
-                    get()
                 }
                 }
             />
-            
+        <Result laureate={laureate}/>
         </div>
     )
 }

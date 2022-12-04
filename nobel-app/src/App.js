@@ -6,12 +6,11 @@ import Nav from './components/Nav/Nav';
 
 
 const App = () => {
-
   return (
     <div className='container'>
       <header>
         <h1 className='header'>
-          <Link to="/Home">Noble Prize Collection</Link>
+          <Link to="/Home">NOBEL PRIZE COLLECTION 1901 - 1905</Link>
         </h1>
       </header>
       <div className='body'>

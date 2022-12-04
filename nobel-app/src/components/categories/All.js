@@ -3,17 +3,9 @@ import React, { useEffect, useState } from "react";
 const All = ({ nobel }) => {
 
     const nobels = nobel.map((item, index) => {
-        let data
-        try {
-            data = item.laureates[0].fullName.en
-        } catch (error) {
-            data = ""
+        if (item.laureates[0].fullName != undefined) {
+            return <li key={index}>{item.laureates[0].fullName.en}</li>
         }
-        return (
-            <div key={index}>
-                <li>{data}</li>
-            </div>
-        )
     })
 
     return (
