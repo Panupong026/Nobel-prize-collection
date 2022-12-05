@@ -16,6 +16,7 @@ const Nav = () => {
     const [nobel, setNobel] = useState([])
     const [insert, setInsert] = useState("")
     const [laureate, setLaureate] = useState([])
+    
     const url = "https://api.nobelprize.org/2.1/nobelPrizes"
 
     useEffect(() => {
@@ -34,18 +35,19 @@ const Nav = () => {
         <div>
             <div className="navBar">
                 <div className="list">
-                    <Link to='/Content/All'><p>All</p></Link>
-                    <Link to='/Content/Literature'><p>Literature</p></Link>
-                    <Link to='/Content/Peace'><p>Peace</p></Link>
-                    <Link to='/Content/Physics'><p>Physics</p></Link>
-                    <Link to='/Content/Chemistry'><p>Chemistry</p></Link>
-                    <Link to='/Content/Economics'><p>Economics</p></Link>
-                    <Link to='/Content/Medicine'><p>Physiology or Medicine</p></Link>
-                    <Link to="/about">About</Link>
+                    <Link to='/Content/All'><p className="navHeader">All</p></Link>
+                    <Link to='/Content/Literature'><p className="navHeader">Literature</p></Link>
+                    <Link to='/Content/Peace'><p className="navHeader">Peace</p></Link>
+                    <Link to='/Content/Physics'><p className="navHeader">Physics</p></Link>
+                    <Link to='/Content/Chemistry'><p className="navHeader">Chemistry</p></Link>
+                    <Link to='/Content/Economics'><p className="navHeader">Economics</p></Link>
+                    <Link to='/Content/Medicine'><p className="navHeader">Physiology or Medicine</p></Link>
+                    <Link to='/about'><p className="navHeader">About</p></Link>
+                    <Link to='/Search'><p className="navHeader">Search</p></Link>
                 </div>
             </div>
             <div className="search">
-                <Search insert={insert} setInsert={setInsert} laureate={laureate} setLaureate={setLaureate}/>
+                
             </div>
             <Routes>
                 <Route path="/Content/All" element={<All nobel={nobel} setNobel={setNobel} />} />
@@ -56,6 +58,7 @@ const Nav = () => {
                 <Route path="/Content/Economics" element={<Economics nobel={nobel} />} />
                 <Route path="/Content/Medicine" element={<Medicine nobel={nobel} />} />
                 <Route path='/about' element={<About />} />
+                <Route path="/Search" element={<Search insert={insert} setInsert={setInsert} laureate={laureate} setLaureate={setLaureate}/>} />
             </Routes>
         </div>
     )

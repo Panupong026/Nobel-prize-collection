@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, Link, Navigate } from 'react-router-dom';
-import Home from './Home'
+import Home from './components/Home/Home'
 import Nav from './components/Nav/Nav';
 
 

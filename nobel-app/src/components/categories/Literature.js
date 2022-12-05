@@ -18,8 +18,8 @@ const Literature = ({ nobel }) => {
 
     return (
         <div>
-            <h1>Literature Nobel prize laureates</h1>
-            {nobels}
+            <h1 className="listHeader">Literature Nobel prize laureates</h1>
+            <p className="listNobel">{nobels}</p>
         </div>
     )
 }

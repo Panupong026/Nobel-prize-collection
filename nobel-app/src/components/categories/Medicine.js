@@ -6,9 +6,9 @@ const Medicine = ({ nobel }) => {
         nobels = nobel.map((item, index) => {
             if (item.category.en === "Physiology or Medicine") {
                 if (item.laureates[0].fullName != undefined) {
-                   return <li key={index}>{item.laureates[0].fullName.en}</li>
+                   return <li key={index}>{item.laureates[0].fullName.en}  :  {item.awardYear}</li>
                 } else {
-                    return <li key={index}>{item.laureates[0].orgName.en}</li> 
+                    return <li key={index}>{item.laureates[0].orgName.en} (Organization)  :  {item.awardYear}</li> 
                 }
             }
             return (
@@ -23,8 +23,8 @@ const Medicine = ({ nobel }) => {
  
     return (
         <div>
-            <h1>Physiology or Medicine Nobel prize laureates</h1>
-            {nobels}
+            <h1 className="listHeader">Physiology or Medicine Nobel prize laureates</h1>
+            <p className="listNobel">{nobels}</p>
         </div>
     )
 }

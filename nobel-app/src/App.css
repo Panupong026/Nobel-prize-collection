@@ -1,12 +1,18 @@
+@font-face {
+  font-family: 'Playfair';
+  src: local('PlayfairDisplay'),
+   url('/fonts/static/PlayfairDisplay-BoldItalic.ttf');
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: black; 
   /* color: white;
-  background-color: black; */
   /* text-decoration: none; */
 }
+
 a:link { 
   text-decoration: none;
   color: white;
@@ -21,14 +27,14 @@ a:link {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Playfair';
   font-style: italic;
 }
 
 .header a {
   text-decoration: none;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .body {
@@ -36,18 +42,74 @@ a:link {
   flex-direction: column;
 }
 
-.navBar {
-  background-color: aqua;
-  border-right: 2px solid black;
-  margin-top: 0;
-  display: grid;
-  border: 1px solid red;
-  font-family: 'Times New Roman', Times, serif;
+.navHeader {
+  font-family: 'Playfair';
+  color: greenyellow;
+  font-size: 1.7rem;
 }
 .list {
+  background-color: black;
+  border-right: 2px solid black;
+  margin-top: 0;
+  margin-left: 2px;
+  margin-right: 2px;
+  
   display: flex;
   justify-content: space-between;
   font-size: 1.6rem;
   text-decoration: none;
   color: white;
+}
+
+.listHeader{
+  font-family: 'Playfair';
+  color: goldenrod;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 20px 0 20px;
+}
+.listNobel {
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(211, 211, 104);
+  font-size: 1.5rem;
+  text-align: center;
+  list-style: none;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+.inline {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px;
+
+}
+.textBox {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  border: 3px solid goldenrod;
+  padding: 5px;
+  height: 50px;
+  border-radius: 5px 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.textBox:focus{
+  color: #00B4CC;
+}
+.searchButton {
+  width: 70px;
+  height: 50px;
+  border: 1px solid rgb(168, 121, 0);
+  background: rgb(245, 189, 47);
+  text-align: center;
+  color: #fff;
+  border-radius: 5px 5px;
+  cursor: pointer;
+  font-size: 15px;
 }

@@ -39,22 +39,24 @@ const Search = ({ insert, setInsert, laureate, setLaureate }) => {
             }
         }
     }
-    console.log(insert)
-    
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="insert"
-                onChange={(e) => handleChange(e)}
-                value={insert}
-            />
-            <input
-                type="submit"
-                onClick={() => {handleClick()}}
-            />
-            <Result laureate={laureate} />
+        <div className="search">
+            <div className="inline">
+                <input
+                    className="textBox"
+                    type="text"
+                    placeholder="insert"
+                    onChange={(e) => handleChange(e)}
+                    value={insert}
+                />
+                <input
+                    className="searchButton"
+                    type="submit"
+                    onClick={() => { handleClick() }}
+                />
+            </div>
+            <Result laureate={laureate} insert={insert} />
         </div>
     )
 }

@@ -1,0 +1,12 @@
+
+
+.text {
+    display: block;
+    background-color: black;
+    text-align: center;
+    color: gold;
+    /* height: 100vh; */
+    padding-top: 40px;
+    font-family: 'Playfair';
+
+}

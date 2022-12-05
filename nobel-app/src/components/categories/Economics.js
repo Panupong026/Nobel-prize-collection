@@ -4,8 +4,8 @@ const Economics = () => {
     
     return (
         <div>
-            <h1>Economics Nobel prize laureates</h1>
-            <p>The award was established in 1968</p>
+            <h1 className="listHeader">Economics Nobel prize laureates</h1>
+            <p className="listNobel">The award was established in 1968</p>
         </div>
     )
 }

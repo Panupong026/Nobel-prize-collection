@@ -23,8 +23,8 @@ const Peace = ({ nobel }) => {
  
     return (
         <div>
-            <h1>Peace Nobel prize laureates</h1>
-            {nobels}
+            <h1 className="listHeader">Peace Nobel prize laureates</h1>
+            <p className="listNobel">{nobels}</p>
         </div>
     )
 }

@@ -6,7 +6,8 @@ const Chemistry = ({ nobel }) => {
         nobels = nobel.map((item, index) => {
 
             if (item.category.en === "Chemistry") {
-                return <li>{item.laureates[0].fullName.en}</li>
+                console.log(item)
+                return <li>{item.laureates[0].fullName.en}  :  {item.awardYear}</li>
             }
                 return (
                     <div key={index}>
@@ -18,8 +19,8 @@ const Chemistry = ({ nobel }) => {
 
     return (
         <div>
-            <h1>Chemistry Nobel prize laureates</h1>
-            {nobels}
+            <h1 className="listHeader">Chemistry Nobel prize laureates</h1>
+            <p className="listNobel">{nobels}</p>
         </div>
     )
 }
