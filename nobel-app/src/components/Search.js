@@ -11,7 +11,6 @@ const Search = ({ insert, setInsert, laureate, setLaureate }) => {
         axios
             .get(urls)
             .then((res) => {
-                // console.log(res.data)
                 setData(res.data.nobelPrizes)
             })
             .catch((err) => {
@@ -23,13 +22,9 @@ const Search = ({ insert, setInsert, laureate, setLaureate }) => {
         setInsert(e.target.value)
     }
 
-    // console.log(data)
-
     let handleClick = () => {
         for (let i = 0; i < data.length; i++) {
             if (data[i].laureates[0].hasOwnProperty('fullName') && insert === data[i].laureates[0].fullName.en) {
-                console.log("test");
-                console.log(data)
                 axios
                     .get(`https://api.nobelprize.org/2.1/laureate/${data[i].laureates[0].id}`)
                     .then((res) => {
@@ -39,9 +34,6 @@ const Search = ({ insert, setInsert, laureate, setLaureate }) => {
                         console.log(err)
                     })
             } else if (data[i].laureates[0].hasOwnProperty('orgName') && insert === data[i].laureates[0].orgName.en) {
-                
-                    console.log("test");
-                    console.log(data)
                     axios
                         .get(`https://api.nobelprize.org/2.1/laureate/${data[i].laureates[0].id}`)
                         .then((res) => {

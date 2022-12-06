@@ -6,7 +6,6 @@ const Physics = ({ nobel }) => {
         nobels = nobel.map((item, index) => {
 
             if (item.category.en === "Physics") {
-                console.log(item)
                 return <li>{item.laureates[0].fullName.en}  :  {item.awardYear}</li>
             }
                 return (

@@ -3,14 +3,11 @@ import React from "react";
 const Result = ({ laureate, insert }) => {
 
     const display = laureate.map((item, index) => {
-        console.log(item)
         if (item.hasOwnProperty('fullName')) {
-            console.log(item);
             return (
                 <div key={index}>
                     <h1 className="listHeader">{insert}</h1>
                     <div className="listNobel">
-
                         <li>Fullname: {item.fullName.en}</li>
                         <li>Gender: {item.gender}</li>
                         <li>Birth: {item.birth.date}</li>
@@ -19,11 +16,11 @@ const Result = ({ laureate, insert }) => {
                         <li>Award year: {item.nobelPrizes[0].awardYear}</li>
                         <li>Category: {item.nobelPrizes[0].category.en}</li>
                         <li>Motivation: {item.nobelPrizes[0].motivation.en}</li>
+                        <a href={item.wikipedia.english}>More Info</a>
                     </div>
                 </div>
             )
         } else {
-            console.log("false");
             return (
                 <div key={index}>
                     <h1 className="listHeader">{insert}</h1>

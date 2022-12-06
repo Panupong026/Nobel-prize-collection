@@ -4,9 +4,7 @@ const Literature = ({ nobel }) => {
     let nobels
     try {
         nobels = nobel.map((item, index) => {
-
             if (item.category.en === "Literature") {
-                console.log(item)
                 return <li>{item.laureates[0].fullName.en}  :  {item.awardYear}</li>
             }
                 return (
