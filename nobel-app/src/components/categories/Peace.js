@@ -6,11 +6,11 @@ const Peace = ({ nobel }) => {
         nobels = nobel.map((item, index) => {
             if (item.category.en === "Peace") {
                 if (item.laureates[0].fullName != undefined) {
-                   return <li key={index}>{item.laureates[0].fullName.en}</li>
+                   return <li key={index}>{item.laureates[0].fullName.en}  :  {item.awardYear}</li>
                 } else {
-                    return <li key={index}>{item.laureates[0].orgName.en}</li> 
+                    return <li key={index}>{item.laureates[0].orgName.en} (Organization)  :  {item.awardYear}</li> 
                 }
-            } 
+            }
             return (
                 <div key={index}>
                     <ul>{nobels}</ul>
@@ -28,5 +28,6 @@ const Peace = ({ nobel }) => {
         </div>
     )
 }
+
 
 export default Peace

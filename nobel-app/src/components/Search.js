@@ -27,7 +27,9 @@ const Search = ({ insert, setInsert, laureate, setLaureate }) => {
 
     let handleClick = () => {
         for (let i = 0; i < data.length; i++) {
-            if (data[i].laureates[0].hasOwnProperty('fullName') ? insert === data[i].laureates[0].fullName.en : data[i]) {
+            if (data[i].laureates[0].hasOwnProperty('fullName') && insert === data[i].laureates[0].fullName.en) {
+                console.log("test");
+                console.log(data)
                 axios
                     .get(`https://api.nobelprize.org/2.1/laureate/${data[i].laureates[0].id}`)
                     .then((res) => {
@@ -36,6 +38,19 @@ const Search = ({ insert, setInsert, laureate, setLaureate }) => {
                     .catch((err) => {
                         console.log(err)
                     })
+            } else if (data[i].laureates[0].hasOwnProperty('orgName') && insert === data[i].laureates[0].orgName.en) {
+                
+                    console.log("test");
+                    console.log(data)
+                    axios
+                        .get(`https://api.nobelprize.org/2.1/laureate/${data[i].laureates[0].id}`)
+                        .then((res) => {
+                            setLaureate([res.data[0]])
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                
             }
         }
     }
@@ -53,7 +68,9 @@ const Search = ({ insert, setInsert, laureate, setLaureate }) => {
                 <input
                     className="searchButton"
                     type="submit"
-                    onClick={() => { handleClick() }}
+                    onClick={(e) => { 
+                        e.preventDefault()
+                        handleClick() }}
                 />
             </div>
             <Result laureate={laureate} insert={insert} />

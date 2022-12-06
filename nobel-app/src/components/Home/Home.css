@@ -7,6 +7,11 @@
     color: gold;
     /* height: 100vh; */
     padding-top: 40px;
+    padding-bottom: 20px;
     font-family: 'Playfair';
 
+}
+
+.h {
+    padding-bottom: 20px;
 }

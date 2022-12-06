@@ -4,15 +4,16 @@ const Literature = ({ nobel }) => {
     let nobels
     try {
         nobels = nobel.map((item, index) => {
-            let data
+
             if (item.category.en === "Literature") {
-                data = item.laureates[0].fullName.en
+                console.log(item)
+                return <li>{item.laureates[0].fullName.en}  :  {item.awardYear}</li>
+            }
                 return (
                     <div key={index}>
-                        <li>{data}</li>
+                        <ul>{nobels}</ul>
                     </div>
                 )
-            }
         })
     } catch (error) {}
 
